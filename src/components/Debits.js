@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
-import axios from "axios";
 
 function Debits({ userName, accountBalance, setAccountBalance }) {
-  const [debits, setDebits] = useState([]);
-  const [boolChanged, setBoolChanged] = useState(false);
 
-  const fetchDebits = async () => {
-    const response = await axios("https://moj-api.herokuapp.com/debits");
-    setDebits(response.data);
-  };
 
   const submitForm = async (e) => {
     e.preventDefault();
   };
 
-  useEffect(() => {
-    fetchDebits();
-    setAccountBalance(accountBalance);
-  }, [boolChanged]);
+  // useEffect(() => {
+  //   fetchDebits();
+  //   setAccountBalance(accountBalance);
+  // }, [boolChanged]);
 
   /* To add today's date to a new debit in the form */
   let today = new Date();
@@ -35,11 +28,6 @@ function Debits({ userName, accountBalance, setAccountBalance }) {
   // function didBoolChanged() {
   //   setBoolChanged(true);
   // }
-
-  useEffect(() => {
-    setAccountBalance(accountBalance);
-    console.log(accountBalance);
-  }, [accountBalance]);
 
   return (
     <div className="blue-background">
@@ -65,7 +53,7 @@ function Debits({ userName, accountBalance, setAccountBalance }) {
       <div>
         <div className="container-fluid debits-container">
           <table className="container text-center mx-auto">
-            {debits.map((e) => {
+            {/* {debits.map((e) => {
               console.log("accountBalance = ", (accountBalance -= e.amount));
               console.log("accountBalance = ", accountBalance.toFixed(2));
               return (
@@ -77,7 +65,7 @@ function Debits({ userName, accountBalance, setAccountBalance }) {
                   </tr>
                 </tbody>
               );
-            })}
+            })} */}
           </table>
         </div>
 

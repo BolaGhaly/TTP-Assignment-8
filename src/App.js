@@ -5,19 +5,36 @@ import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
 import Credits from "./components/Credits";
 import Debits from "./components/Debits";
+import axios from "axios";
 
 import "./App.css";
 
 function App() {
-  const [accountBalance, setAccountBalance] = useState();
+  let [accountBalance, setAccountBalance] = useState();
   const [currentUser, setCurrentUser] = useState(null);
   const [memberSince, setMemberSince] = useState([]);
-
+  const [debits, setDebits] = useState([]);
+  const [boolChanged, setBoolChanged] = useState(false);
+  
   useEffect(() => {
     setAccountBalance(0);
     setCurrentUser("bob_loblaw");
     setMemberSince("08/23/99");
+    fetchDebits();
   }, []);
+
+
+  const fetchDebits = async () => {
+    const response = await axios("https://moj-api.herokuapp.com/debits");
+    setDebits(response.data);
+  };
+
+  debits.map((e) => {
+    console.log("accountBalance = ", (accountBalance -= e.amount));
+    console.log("accountBalance = ", accountBalance.toFixed(2));
+  });
+
+
 
   // useEffect(() => {
   //   setAccountBalance(accountBalance)
