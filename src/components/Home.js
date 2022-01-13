@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
 
-function Home({ accBalance, setAccountBalance }) {
+function Home({ totalBalance }) {
   return (
-    <div className="background-img">
-      <div className="over-container">
+    <div className="background-img d-flex justify-content-center align-items-center">
+      <div className="container over-container">
         <h1 className="page-title">Bank of React</h1>
-        <AccountBalance accBalance={accBalance} />
+        <AccountBalance totalBalance={totalBalance} />
 
         <div className="buttons-container">
-          <button className="btn btn-dark me-5 shadow-none">
+          <button className="btn btn-dark shadow-none first-button">
             <Link to="/debits" className=" text-decoration-none whitesmoke">
               View Your Debits
             </Link>

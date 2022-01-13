@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-function AccountBalance({ accBalance }) {
-  return <div>Balance: ${Number(accBalance).toFixed(2)}</div>;
+function AccountBalance({ totalBalance }) {
+  return <div className="balance-text">Balance: ${Number(totalBalance).toFixed(2)}</div>;
 }
 
 export default AccountBalance;

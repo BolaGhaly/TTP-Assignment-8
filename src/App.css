@@ -34,28 +34,6 @@ table {
   background-color: rgba(17, 15, 15, 0.76);
 }
 
-.blue-background {
-  background-color: rgb(18, 54, 63);
-}
-
-.buttons-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin: 20px 0;
-}
-
-.button-text-dark, .button-text-dark:hover, .button-text-dark:active {
-  color: #000;
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.page-title {
-  margin-top: 10px;
-}
-
 h1 {
   font-size: 2.2rem;
 }
@@ -75,7 +53,7 @@ h1 {
   color: whitesmoke !important;
 }
 
-/*------------------------------- Insert Here ------------------------------*/
+/*------------------------------- General ------------------------------*/
 
 .background-img {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -88,6 +66,8 @@ h1 {
 }
 
 .over-container {
+  padding: 40px;
+  max-width: fit-content;
   text-shadow: #005f889c 0px 0px 2px;
   background-color: rgb(226, 226, 226);
   color: black;
@@ -98,6 +78,50 @@ h1 {
   flex-direction: column;
 }
 
+.over-small-container {
+  text-align: center;
+  padding: 20px;
+  color: black;
+  text-shadow: #005f889c 0px 0px 2px;
+  background-color: rgb(226, 226, 226);
+}
+
+.blue-background {
+  background-color: rgb(18, 54, 63);
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px 0;
+}
+
+.first-button {
+  margin-right: 50px;
+}
+
+.button-text-dark,
+.button-text-dark:hover,
+.button-text-dark:active {
+  color: #000;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.page-title {
+  text-shadow: tan 0px 0px 2px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin: 15px 0;
+}
+
+.balance-text {
+  font-size: 18px;
+  color: black;
+  font-weight: 500;
+}
 /*------------------------------- Debits ------------------------------*/
 .debits-container {
   margin-top: 40px;
@@ -122,4 +146,34 @@ h1 {
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 1px;
+}
+
+/*------------------------------- Credits ------------------------------*/
+
+.credits-container {
+  margin-top: 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: whitesmoke;
+}
+
+.credits-form form {
+  padding: 50px 0;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 473px) {
+  .buttons-container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .buttons-container button {
+    min-width: 100%;
+  }
+  .first-button {
+    margin: 0 0 20px 0;
+  }
 }

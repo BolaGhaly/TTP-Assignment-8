@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
 
 function Debits({
-  accBalance,
   setDebits,
   debits,
-  tempTotalBalance,
-  setTempTotalBalance,
+  totalBalance,
+  setTotalBalance,
 }) {
   const [newDebitDesc, setNewDebitDesc] = useState([]);
   const [newDebitAmount, setNewDebitAmount] = useState(0);
@@ -27,43 +26,18 @@ function Debits({
       description: newDebitDesc,
       amount: newDebitAmount,
     });
-    let last = debits[debits.length - 1].amount;
-    setTempTotalBalance(tempTotalBalance - last);
-
+    let lastElement = debits[debits.length - 1].amount;
+    setTotalBalance(totalBalance - lastElement);
     setDebits(debits);
-    // console.log(debits.map((e) => console.log(e)));
-    //debits.map((e) => console.log(e));
-
-    //         try{    //4. send the request
-    //         5. declare body
-    //         const body = {track}
-    //         6. fetch
-    //         const response = await fetch ("http://localhost:8080/tracks", {
-    //             method: 'POST',
-    //             headers: {
-    //               'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(body),
-    //           })
-    //           console.log(response)
-    //         }
-    //     catch(err){ //3. error catch
-    //         console.error(err.message)
-    //     }
-    // }
   };
-
-  // today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  // console.log("Today:", today);
-  // console.log("Time:", time);
 
   return (
     <div className="blue-background">
-      <div className="over-container">
+      <div className="container-fluid over-small-container">
         <h1 className="page-title">Debits</h1>
-        <AccountBalance accBalance={accBalance} />
+        <AccountBalance totalBalance={totalBalance} />
         <div className="buttons-container">
-          <button className="btn btn-dark me-5 shadow-none">
+          <button className="btn btn-dark shadow-none first-button">
             <Link to="/" className="text-decoration-none whitesmoke">
               Home Page
             </Link>
