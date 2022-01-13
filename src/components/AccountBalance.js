@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-function AccountBalance({ accountBalance }) {
-
-  return <div>Balance: ${accountBalance}</div>;
+function AccountBalance({ accBalance }) {
+  return <div>Balance: ${Number(accBalance).toFixed(2)}</div>;
 }
 
 export default AccountBalance;

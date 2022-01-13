@@ -2,14 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
 
-function Home({ accountBalance, setAccountBalance }) {
+function Home({ accBalance, setAccountBalance }) {
   return (
     <div className="background-img">
       <div className="over-container">
         <h1 className="page-title">Bank of React</h1>
-        <AccountBalance
-          accountBalance={accountBalance}
-        />
+        <AccountBalance accBalance={accBalance} />
 
         <div className="buttons-container">
           <button className="btn btn-dark me-5 shadow-none">

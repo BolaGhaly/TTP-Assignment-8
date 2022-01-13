@@ -2,17 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
 
-function Debits({ userName, accountBalance, setAccountBalance }) {
-
-
+function Debits({ accBalance, debits }) {
   const submitForm = async (e) => {
     e.preventDefault();
+    // console.log(debits.map((e) => console.log(e)));
+    debits.map((e) => console.log(e));
   };
-
-  // useEffect(() => {
-  //   fetchDebits();
-  //   setAccountBalance(accountBalance);
-  // }, [boolChanged]);
 
   /* To add today's date to a new debit in the form */
   let today = new Date();
@@ -25,15 +20,11 @@ function Debits({ userName, accountBalance, setAccountBalance }) {
   // console.log("Today:", today);
   // console.log("Time:", time);
 
-  // function didBoolChanged() {
-  //   setBoolChanged(true);
-  // }
-
   return (
     <div className="blue-background">
       <div className="over-container">
         <h1 className="page-title">Debits</h1>
-        <AccountBalance accountBalance={accountBalance} />
+        <AccountBalance accBalance={accBalance} />
         <div className="buttons-container">
           <button className="btn btn-dark me-5 shadow-none">
             <Link to="/" className="text-decoration-none whitesmoke">
@@ -53,9 +44,7 @@ function Debits({ userName, accountBalance, setAccountBalance }) {
       <div>
         <div className="container-fluid debits-container">
           <table className="container text-center mx-auto">
-            {/* {debits.map((e) => {
-              console.log("accountBalance = ", (accountBalance -= e.amount));
-              console.log("accountBalance = ", accountBalance.toFixed(2));
+            {debits.map((e) => {
               return (
                 <tbody key={e.id}>
                   <tr>
@@ -65,7 +54,7 @@ function Debits({ userName, accountBalance, setAccountBalance }) {
                   </tr>
                 </tbody>
               );
-            })} */}
+            })}
           </table>
         </div>
 
@@ -80,7 +69,11 @@ function Debits({ userName, accountBalance, setAccountBalance }) {
             <label htmlFor="amount" className="mt-4">
               Amount:
             </label>
-            <input type="text" id="amount" placeholder="Amount of Debit ($$)" />
+            <input
+              type="number"
+              id="amount"
+              placeholder="Amount of Debit ($$)"
+            />
             <button
               type="submit"
               className="form-submit-button btn-dark shadow-none"
