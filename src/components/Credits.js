@@ -92,7 +92,7 @@ function Credits({ credits, setCredits, totalBalance, setTotalBalance }) {
               type="submit"
               className="form-submit-button btn-dark shadow-none"
             >
-              Add Debit
+              Add Credit
             </button>
           </form>
         </div>
