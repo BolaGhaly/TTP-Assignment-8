@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+form label {
+  margin-right: 20px;
+  width: 100px;
+  height: 100%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+form input {
+  font-weight: 400;
+  padding: 10px 20px;
+}
+
+table {
+  background-color: rgba(17, 15, 15, 0.76);
+}
+
+.blue-background {
+  background-color: rgb(18, 54, 63);
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px 0;
+}
+
+.button-text-dark, .button-text-dark:hover, .button-text-dark:active {
+  color: #000;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.page-title {
+  margin-top: 10px;
+}
+
+
+/*------------------------------- Bootstrap ------------------------------*/
+
+.row {
+  margin: 0;
+}
+
+.card {
+  padding: 25px 10px;
+  background-color: tan;
+  margin: 0 10px 20px;
+}
+
+.whitesmoke {
+  color: whitesmoke !important;
+}
+
+/*------------------------------- Insert Here ------------------------------*/
+
+.background-img {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFua3xlbnwwfHwwfHw%3D&w=1000&q=80");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+}
+
+.over-container {
+  text-shadow: #005f889c 0px 0px 2px;
+  background-color: rgb(226, 226, 226);
+  color: black;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/*------------------------------- Debits ------------------------------*/
+.debits-container {
+  margin-top: 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: whitesmoke;
+}
+
+.debits-form form {
+  padding: 50px 0;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-submit-button {
+  text-shadow: #0000009c 0px 0px 5px;
+  margin: 25px auto 0;
+  width: fit-content;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
