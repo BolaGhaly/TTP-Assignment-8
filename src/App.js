@@ -16,7 +16,7 @@ import "./App.css";
 function App() {
   let [debitAccBalance, setDebitAccBalance] = useState(0);
   let [creditAccBalance, setCreditAccBalance] = useState(0);
-  let [totalBalance, setTotalBalance] = useState();
+  let [totalBalance, setTotalBalance] = useState(0);
   // let [creditTotalBalance, setCreditTotalBalance] = useState(0);
 
   const [currentUser, setCurrentUser] = useState({
@@ -38,8 +38,6 @@ function App() {
 
   debits.map((e) => {
     debitAccBalance -= e.amount;
-    // console.log(e);
-    //console.log(debitAccBalance);
   });
 
   credits.map((e) => {

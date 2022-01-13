@@ -22,7 +22,7 @@ function Login({ currentUser, mockLogIn }) {
         <h1>Login</h1>
         <form onSubmit={handleSubmit} className="login-form">
           <label htmlFor="userName" className="mt-4">
-            User Name:{" "}
+            User Name:
           </label>
           <input
             type="text"

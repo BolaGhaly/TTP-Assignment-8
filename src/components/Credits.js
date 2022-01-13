@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
 
-function Credits({
-  credits,
-  setCredits,
-  totalBalance,
-  setTotalBalance,
-}) {
+function Credits({ credits, setCredits, totalBalance, setTotalBalance }) {
   const [newCreditDesc, setNewCreditDesc] = useState([]);
   const [newCreditAmount, setNewCreditAmount] = useState(0);
 
