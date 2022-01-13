@@ -8,7 +8,7 @@ function Login({ currentUser, mockLogIn }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    mockLogIn(currentUser);
+    mockLogIn(username);
     setRedirect(true);
   };
 

@@ -52,10 +52,8 @@ function App() {
     fetchCredits();
   }, []);
 
-  const mockLogIn = (user) => {
-    const newUser = currentUser;
-    newUser.userName = user.userName;
-    setCurrentUser(newUser.userName);
+  const mockLogIn = (username) => {
+    setCurrentUser({ userName: username, memberSince: "02/18/1998" });
   };
 
   return (
@@ -67,8 +65,7 @@ function App() {
           path="/userProfile"
           element={
             <UserProfile
-              userName={currentUser.userName}
-              memberSince={currentUser.memberSince}
+              currentUser={currentUser}
               totalBalance={totalBalance}
             />
           }

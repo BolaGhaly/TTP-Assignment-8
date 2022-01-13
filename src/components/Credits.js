@@ -22,7 +22,7 @@ function Credits({ credits, setCredits, totalBalance, setTotalBalance }) {
       amount: newCreditAmount,
     });
     let lastElement = credits[credits.length - 1].amount;
-    setTotalBalance(totalBalance + lastElement)
+    setTotalBalance(totalBalance + lastElement);
     setCredits(credits);
   };
 
@@ -74,6 +74,7 @@ function Credits({ credits, setCredits, totalBalance, setTotalBalance }) {
               id="description"
               placeholder="Description of Credit"
               onChange={(event) => setNewCreditDesc(event.target.value)}
+              required
             />
             <label htmlFor="amount" className="mt-4">
               Amount:
@@ -85,6 +86,7 @@ function Credits({ credits, setCredits, totalBalance, setTotalBalance }) {
               min={0}
               step="0.01"
               onChange={(event) => setNewCreditAmount(event.target.value)}
+              required
             />
             <button
               type="submit"

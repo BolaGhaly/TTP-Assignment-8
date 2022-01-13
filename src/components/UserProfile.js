@@ -2,17 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
 
-function UserProfile({
-  userName,
-  memberSince,
-  totalBalance,
-}) {
+function UserProfile({ currentUser, totalBalance }) {
   return (
     <div className="background-img d-flex justify-content-center align-items-center">
       <div className="over-container">
         <h1 className="page-title">User Profile</h1>
-        <div className="user-text">Username: {userName}</div>
-        <div className="user-text">Member Since: {memberSince}</div>
+        <div className="user-text">Username: {currentUser.userName}</div>
+        <div className="user-text">Member Since: {currentUser.memberSince}</div>
         <AccountBalance totalBalance={totalBalance} />
         <div className="buttons-container">
           <button className="btn btn-dark shadow-none first-button">

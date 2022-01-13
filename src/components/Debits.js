@@ -74,6 +74,7 @@ function Debits({ setDebits, debits, totalBalance, setTotalBalance }) {
               id="description"
               placeholder="Description of Debit"
               onChange={(event) => setNewDebitDesc(event.target.value)}
+              required
             />
             <label htmlFor="amount" className="mt-4">
               Amount:
@@ -85,6 +86,7 @@ function Debits({ setDebits, debits, totalBalance, setTotalBalance }) {
               min={0}
               step="0.01"
               onChange={(event) => setNewDebitAmount(event.target.value)}
+              required
             />
             <button
               type="submit"

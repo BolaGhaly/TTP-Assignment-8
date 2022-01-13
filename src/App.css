@@ -43,6 +43,7 @@ h1 {
   padding: 10px;
   background-color: rgba(37, 37, 37, 0.705);
   margin: 0 10px 20px;
+  border: 1px solid whitesmoke;
 }
 
 .whitesmoke {
@@ -82,7 +83,7 @@ h1 {
 }
 
 .blue-background {
-  background-color: rgb(18, 54, 63);
+  background-color: rgb(9, 42, 49);
 }
 
 .buttons-container {
