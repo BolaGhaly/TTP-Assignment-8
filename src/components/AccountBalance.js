@@ -1,9 +1,11 @@
 import React from "react";
 
 function AccountBalance({ totalBalance }) {
-  console.log(totalBalance)
+  console.log(typeof (totalBalance))
+  console.log(totalBalance);
+
   return (
-    <div className="user-text">Balance: ${Number(totalBalance).toFixed(2)}</div>
+    <div className="user-text">Balance: ${totalBalance}</div>
   );
 }
 

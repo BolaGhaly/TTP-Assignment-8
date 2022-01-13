@@ -13,6 +13,9 @@ function Credits({ credits, setCredits, totalBalance, setTotalBalance }) {
   let year = today.getFullYear();
   today = month + "/" + day + "/" + year;
 
+
+  let tempFloat1 = totalBalance;
+
   const submitForm = (e) => {
     e.preventDefault();
     credits.push({
@@ -21,8 +24,17 @@ function Credits({ credits, setCredits, totalBalance, setTotalBalance }) {
       description: newCreditDesc,
       amount: newCreditAmount,
     });
-    let lastElement = credits[credits.length - 1].amount;
-    setTotalBalance(totalBalance + lastElement);
+    let lastElement = parseFloat(credits[credits.length - 1].amount);
+    console.log(
+      "Before Printing totalBalance + lastElement = ",
+      totalBalance + lastElement
+    );
+    let tempFloat = parseFloat(lastElement + totalBalance);
+    console.log(typeof (lastElement));
+    console.log(tempFloat);
+    tempFloat1 += tempFloat;
+    //setTotalBalance(tempFloat1);
+    console.log(typeof tempFloat1);
     setCredits(credits);
   };
 
@@ -30,7 +42,7 @@ function Credits({ credits, setCredits, totalBalance, setTotalBalance }) {
     <div className="blue-background">
       <div className="over-small-container">
         <h1 className="page-title">Credits</h1>
-        <AccountBalance totalBalance={totalBalance} />
+        <AccountBalance totalBalance={tempFloat1} />
         <div className="buttons-container">
           <button className="btn btn-dark shadow-none first-button">
             <Link to="/" className="text-decoration-none whitesmoke">

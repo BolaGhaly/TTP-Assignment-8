@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
@@ -23,6 +19,7 @@ function App() {
     userName: "bob_loblaw",
     memberSince: "02/18/1998",
   });
+
   const [debits, setDebits] = useState([]);
   const [credits, setCredits] = useState([]);
 
@@ -45,6 +42,9 @@ function App() {
   });
 
   totalBalance = debitAccBalance + creditAccBalance;
+  //console.log(typeof totalBalance)
+  //setTotalBalance(debitAccBalance + creditAccBalance);
+
   // creditTotalBalance = debitAccBalance + creditAccBalance;
 
   useEffect(() => {

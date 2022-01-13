@@ -22,7 +22,15 @@ function Debits({ setDebits, debits, totalBalance, setTotalBalance }) {
       amount: newDebitAmount,
     });
     let lastElement = debits[debits.length - 1].amount;
+    console.log(
+      "Before Printing totalBalance + lastElement = ",
+      totalBalance + lastElement
+    );
     setTotalBalance(totalBalance - lastElement);
+    console.log(
+      "After Printing totalBalance + lastElement = ",
+      totalBalance + lastElement
+    );
     setDebits(debits);
   };
 
