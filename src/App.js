@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
@@ -12,19 +17,23 @@ import "./App.css";
 function App() {
   let [debitAccBalance, setDebitAccBalance] = useState(0);
   let [creditAccBalance, setCreditAccBalance] = useState(0);
-  // const [accBalance, setAccBalance] = useState();
-  const [currentUser, setCurrentUser] = useState(null);
-  const [memberSince, setMemberSince] = useState([]);
+  let [tempTotalBalance, setTempTotalBalance] = useState(0);
+  const [currentUser, setCurrentUser] = useState({
+    userName: "bob_loblaw",
+    memberSince: "02/18/1998",
+  });
   const [debits, setDebits] = useState([]);
   const [credits, setCredits] = useState([]);
 
   useEffect(() => {
-    // setAccBalance(0);
-    setCurrentUser("bob_loblaw");
-    setMemberSince("08/23/99");
     fetchDebits();
     fetchCredits();
   }, []);
+
+  // useEffect(() => {
+  //   setDebits(debits);
+  //   console.log("AFTER!!!");
+  // }, [debits]);
 
   const fetchDebits = async () => {
     const response = await axios("https://moj-api.herokuapp.com/debits");
@@ -46,7 +55,7 @@ function App() {
     creditAccBalance += e.amount;
   });
 
-  let tempTotalBalance = debitAccBalance + creditAccBalance;
+  tempTotalBalance = debitAccBalance + creditAccBalance;
 
   const mockLogIn = (logInInfo) => {
     const newUser = currentUser;
@@ -67,8 +76,8 @@ function App() {
           path="/userProfile"
           element={
             <UserProfile
-              userName={currentUser}
-              memberSince={memberSince}
+              userName={currentUser.userName}
+              memberSince={currentUser.memberSince}
               accBalance={tempTotalBalance}
             />
           }
@@ -84,7 +93,7 @@ function App() {
           path="/credits"
           element={
             <Credits
-              userName={currentUser}
+              userName={currentUser.userName}
               accBalance={tempTotalBalance}
               credits={credits}
             />
@@ -94,7 +103,15 @@ function App() {
         <Route
           exact
           path="/debits"
-          element={<Debits accBalance={tempTotalBalance} debits={debits} />}
+          element={
+            <Debits
+              accBalance={tempTotalBalance}
+              debits={debits}
+              setDebits={setDebits}
+              tempTotalBalance={tempTotalBalance}
+              setTempTotalBalance={setTempTotalBalance}
+            />
+          }
         />
       </Routes>
     </Router>
