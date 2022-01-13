@@ -6,15 +6,6 @@ function Login({ currentUser, mockLogIn }) {
   const [password, setPassword] = useState([]);
   const [redirect, setRedirect] = useState(false);
 
-  const handleChange = (e) => {
-    const updatedUser = currentUser;
-    const inputField = e.target.name;
-    const inputValue = e.target.value;
-    updatedUser[inputField] = inputValue;
-
-    setUsername(updatedUser);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     mockLogIn(currentUser);
@@ -26,24 +17,31 @@ function Login({ currentUser, mockLogIn }) {
   }
 
   return (
-    <div className="background-img">
-      <div className="over-container">
+    <div className="background-img d-flex justify-content-center align-items-center">
+      <div className="login-container">
         <h1>Login</h1>
-        <form onSubmit={handleSubmit} className="my-4">
-          <div className="mb-3">
-            <label htmlFor="userName">User Name: </label>
-            <input
-              type="text"
-              name="userName"
-              onChange={handleChange}
-              value={username}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="password">Password:</label>
-            <input type="password" name="password" />
-          </div>
-          <button>Log In</button>
+        <form onSubmit={handleSubmit} className="login-form">
+          <label htmlFor="userName" className="mt-4">
+            User Name:{" "}
+          </label>
+          <input
+            type="text"
+            name="userName"
+            onChange={(event) => setUsername(event.target.value)}
+            placeholder="Username"
+          />
+          <label htmlFor="password" className="mt-4">
+            Password:
+          </label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <button type="submit" className="login-button btn-dark shadow-none">
+            Log In
+          </button>
         </form>
       </div>
     </div>

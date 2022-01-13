@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
 import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
@@ -18,6 +17,8 @@ function App() {
   let [debitAccBalance, setDebitAccBalance] = useState(0);
   let [creditAccBalance, setCreditAccBalance] = useState(0);
   let [totalBalance, setTotalBalance] = useState();
+  // let [creditTotalBalance, setCreditTotalBalance] = useState(0);
+
   const [currentUser, setCurrentUser] = useState({
     userName: "bob_loblaw",
     memberSince: "02/18/1998",
@@ -46,16 +47,17 @@ function App() {
   });
 
   totalBalance = debitAccBalance + creditAccBalance;
+  // creditTotalBalance = debitAccBalance + creditAccBalance;
 
   useEffect(() => {
     fetchDebits();
     fetchCredits();
   }, []);
 
-  const mockLogIn = (logInInfo) => {
+  const mockLogIn = (user) => {
     const newUser = currentUser;
-    newUser.userName = logInInfo.userName;
-    setCurrentUser(newUser);
+    newUser.userName = user.userName;
+    setCurrentUser(newUser.userName);
   };
 
   return (
@@ -88,6 +90,8 @@ function App() {
               setCredits={setCredits}
               totalBalance={totalBalance}
               setTotalBalance={setTotalBalance}
+              // setCreditTotalBalance={setCreditTotalBalance}
+              // creditTotalBalance={creditTotalBalance}
             />
           }
         />
@@ -97,7 +101,6 @@ function App() {
           path="/debits"
           element={
             <Debits
-              accBalance={totalBalance}
               debits={debits}
               setDebits={setDebits}
               totalBalance={totalBalance}

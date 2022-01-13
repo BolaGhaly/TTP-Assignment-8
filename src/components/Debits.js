@@ -1,13 +1,8 @@
 import React, { useState } from "react";
-import { Link, } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
 
-function Debits({
-  setDebits,
-  debits,
-  totalBalance,
-  setTotalBalance,
-}) {
+function Debits({ setDebits, debits, totalBalance, setTotalBalance }) {
   const [newDebitDesc, setNewDebitDesc] = useState([]);
   const [newDebitAmount, setNewDebitAmount] = useState(0);
 
@@ -18,7 +13,7 @@ function Debits({
   let yyyy = today.getFullYear();
   today = mm + "/" + dd + "/" + yyyy;
 
-  const submitForm = async (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
     debits.push({
       id: Math.random(),
@@ -54,19 +49,21 @@ function Debits({
       </div>
       <div>
         <div className="container-fluid debits-container">
-          <table className="container text-center mx-auto">
+          <div className="row d-flex justify-content-center">
             {debits.map((e) => {
               return (
-                <tbody key={e.id}>
-                  <tr>
-                    <td>{e.date}</td>
-                    <th>{e.description}</th>
-                    <td>${e.amount}</td>
-                  </tr>
-                </tbody>
+                <div className="card col-xxl-2 col-md-4 col-sm-5" key={e.id}>
+                  <div className="card-body">
+                    <div className="card-text">
+                      <p>Date: {e.date}</p>
+                      <p>Description: {e.description}</p>
+                      <p>Amount: ${e.amount}</p>
+                    </div>
+                  </div>
+                </div>
               );
             })}
-          </table>
+          </div>
         </div>
 
         <div className="container debits-form">

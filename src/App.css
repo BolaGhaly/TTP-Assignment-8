@@ -30,10 +30,6 @@ form input {
   padding: 10px 20px;
 }
 
-table {
-  background-color: rgba(17, 15, 15, 0.76);
-}
-
 h1 {
   font-size: 2.2rem;
 }
@@ -44,8 +40,8 @@ h1 {
 }
 
 .card {
-  padding: 25px 10px;
-  background-color: tan;
+  padding: 10px;
+  background-color: rgba(37, 37, 37, 0.705);
   margin: 0 10px 20px;
 }
 
@@ -54,7 +50,6 @@ h1 {
 }
 
 /*------------------------------- General ------------------------------*/
-
 .background-img {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url("https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFua3xlbnwwfHwwfHw%3D&w=1000&q=80");
@@ -67,7 +62,7 @@ h1 {
 
 .over-container {
   padding: 40px;
-  max-width: fit-content;
+  width: fit-content;
   text-shadow: #005f889c 0px 0px 2px;
   background-color: rgb(226, 226, 226);
   color: black;
@@ -114,13 +109,13 @@ h1 {
   text-shadow: tan 0px 0px 2px;
   letter-spacing: 1px;
   font-weight: 500;
-  margin: 15px 0;
+  margin: 0;
 }
 
-.balance-text {
+.user-text {
   font-size: 18px;
   color: black;
-  font-weight: 500;
+  font-weight: 400;
 }
 /*------------------------------- Debits ------------------------------*/
 .debits-container {
@@ -128,6 +123,9 @@ h1 {
   font-size: 1.2rem;
   font-weight: 600;
   color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .debits-form form {
@@ -155,6 +153,9 @@ h1 {
   font-size: 1.2rem;
   font-weight: 600;
   color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .credits-form form {
@@ -164,6 +165,49 @@ h1 {
   flex-direction: column;
 }
 
+/*------------------------------- Login ------------------------------*/
+.login-container {
+  padding: 30px;
+  width: fit-content;
+  background-color: #e2e2e2;
+  color: black;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  text-align: start;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.login-form input {
+  font-weight: 400;
+  padding: 10px 20px;
+}
+
+.login-button {
+  text-shadow: #0000009c 0px 0px 5px;
+  margin: 25px auto 0;
+  width: fit-content;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/*------------------------------- Media Queries ------------------------------*/
 @media screen and (max-width: 473px) {
   .buttons-container {
     justify-content: center;

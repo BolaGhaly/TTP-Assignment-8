@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
 
-function Credits({ setCredits, credits, totalBalance, setTotalBalance }) {
+function Credits({
+  credits,
+  setCredits,
+  totalBalance,
+  setTotalBalance,
+}) {
   const [newCreditDesc, setNewCreditDesc] = useState([]);
   const [newCreditAmount, setNewCreditAmount] = useState(0);
 
   /* To add today's date to a new debit in the form */
   let today = new Date();
-  let dd = String(today.getDate()).padStart(2, "0");
-  let mm = String(today.getMonth() + 1).padStart(2, "0");
-  let yyyy = today.getFullYear();
-  today = mm + "/" + dd + "/" + yyyy;
+  let day = String(today.getDate()).padStart(2, "0");
+  let month = String(today.getMonth() + 1).padStart(2, "0");
+  let year = today.getFullYear();
+  today = month + "/" + day + "/" + year;
 
-  const submitForm = async (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
     credits.push({
       id: Math.random(),
@@ -22,7 +27,7 @@ function Credits({ setCredits, credits, totalBalance, setTotalBalance }) {
       amount: newCreditAmount,
     });
     let lastElement = credits[credits.length - 1].amount;
-    setTotalBalance(totalBalance + lastElement);
+    setTotalBalance(totalBalance + lastElement)
     setCredits(credits);
   };
 
@@ -48,20 +53,22 @@ function Credits({ setCredits, credits, totalBalance, setTotalBalance }) {
         </div>
       </div>
       <div>
-        <div className="container-fluid debits-container">
-          <table className="container text-center mx-auto">
+        <div className="container-fluid credits-container">
+          <div className="row d-flex justify-content-center">
             {credits.map((e) => {
               return (
-                <tbody key={e.id}>
-                  <tr>
-                    <td>{e.date}</td>
-                    <th>{e.description}</th>
-                    <td>${e.amount}</td>
-                  </tr>
-                </tbody>
+                <div className="card col-xxl-2 col-md-4 col-sm-5" key={e.id}>
+                  <div className="card-body">
+                    <div className="card-text">
+                      <p>Date: {e.date}</p>
+                      <p>Description: {e.description}</p>
+                      <p>Amount: ${e.amount}</p>
+                    </div>
+                  </div>
+                </div>
               );
             })}
-          </table>
+          </div>
         </div>
 
         <div className="container debits-form">
@@ -70,7 +77,7 @@ function Credits({ setCredits, credits, totalBalance, setTotalBalance }) {
             <input
               type="text"
               id="description"
-              placeholder="Description of Debit"
+              placeholder="Description of Credit"
               onChange={(event) => setNewCreditDesc(event.target.value)}
             />
             <label htmlFor="amount" className="mt-4">
@@ -79,7 +86,7 @@ function Credits({ setCredits, credits, totalBalance, setTotalBalance }) {
             <input
               type="number"
               id="amount"
-              placeholder="Amount of Debit ($$)"
+              placeholder="Amount of Credit ($$)"
               min={0}
               step="0.01"
               onChange={(event) => setNewCreditAmount(event.target.value)}

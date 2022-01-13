@@ -11,8 +11,8 @@ function UserProfile({
     <div className="background-img d-flex justify-content-center align-items-center">
       <div className="over-container">
         <h1 className="page-title">User Profile</h1>
-        <div>Username: {userName}</div>
-        <div>Member Since: {memberSince}</div>
+        <div className="user-text">Username: {userName}</div>
+        <div className="user-text">Member Since: {memberSince}</div>
         <AccountBalance totalBalance={totalBalance} />
         <div className="buttons-container">
           <button className="btn btn-dark shadow-none first-button">
