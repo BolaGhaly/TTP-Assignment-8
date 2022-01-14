@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import AccountBalance from "./AccountBalance";
 
@@ -13,9 +13,6 @@ function Credits({ credits, setCredits, totalBalance, setTotalBalance }) {
   let year = today.getFullYear();
   today = month + "/" + day + "/" + year;
 
-
-  let tempFloat1 = totalBalance;
-
   const submitForm = (e) => {
     e.preventDefault();
     credits.push({
@@ -25,24 +22,17 @@ function Credits({ credits, setCredits, totalBalance, setTotalBalance }) {
       amount: newCreditAmount,
     });
     let lastElement = parseFloat(credits[credits.length - 1].amount);
-    console.log(
-      "Before Printing totalBalance + lastElement = ",
-      totalBalance + lastElement
-    );
     let tempFloat = parseFloat(lastElement + totalBalance);
-    console.log(typeof (lastElement));
-    console.log(tempFloat);
-    tempFloat1 += tempFloat;
-    //setTotalBalance(tempFloat1);
-    console.log(typeof tempFloat1);
+    setTotalBalance(tempFloat);
     setCredits(credits);
   };
+
 
   return (
     <div className="blue-background">
       <div className="over-small-container">
         <h1 className="page-title">Credits</h1>
-        <AccountBalance totalBalance={tempFloat1} />
+        <AccountBalance totalBalance={totalBalance} />
         <div className="buttons-container">
           <button className="btn btn-dark shadow-none first-button">
             <Link to="/" className="text-decoration-none whitesmoke">

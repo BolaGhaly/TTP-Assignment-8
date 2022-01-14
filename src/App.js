@@ -41,7 +41,19 @@ function App() {
     creditAccBalance += e.amount;
   });
 
-  totalBalance = debitAccBalance + creditAccBalance;
+  let tempBalance = totalBalance;
+  let i = 0;
+  console.log("totalBalance = ", totalBalance);
+
+  if (i === 0) {
+    totalBalance = debitAccBalance + creditAccBalance;
+    i++;
+    console.log("here 1");
+  } else if (i < 0) {
+    totalBalance = tempBalance;
+    console.log("here 2");
+  }
+  console.log("i =", i);
   //console.log(typeof totalBalance)
   //setTotalBalance(debitAccBalance + creditAccBalance);
 
@@ -51,6 +63,7 @@ function App() {
     fetchDebits();
     fetchCredits();
   }, []);
+
 
   const mockLogIn = (username) => {
     setCurrentUser({ userName: username, memberSince: "02/18/1998" });
